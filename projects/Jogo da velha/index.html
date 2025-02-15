@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Jogo da Velha</h1>
+        <div class="maingrid" id="maingrid">
+            <div class="grid" id="grid1" onclick="jogadaFeita(1);"></div>
+            <div class="grid" id="grid2" onclick="jogadaFeita(2);"></div>
+            <div class="grid" id="grid3" onclick="jogadaFeita(3);"></div>
+            <div class="grid" id="grid4" onclick="jogadaFeita(4);"></div>
+            <div class="grid" id="grid5" onclick="jogadaFeita(5);"></div>
+            <div class="grid" id="grid6" onclick="jogadaFeita(6);"></div>
+            <div class="grid" id="grid7" onclick="jogadaFeita(7);"></div>
+            <div class="grid" id="grid8" onclick="jogadaFeita(8);"></div>
+            <div class="grid" id="grid9" onclick="jogadaFeita(9);"></div>
+        </div>
+        <div class="balanco" id="balanco"></div>
+        <div class="restart" id="restart" onclick="startNewJogoDaVeia();">
+            Reiniciar
+        </div>
+    </main>
+</body>
+<script src="script.js"> </script>
+</html>
