@@ -3,28 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Juguin</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <main>
-        <h1>Jogo da Velha</h1>
-        <div class="maingrid" id="maingrid">
-            <div class="grid" id="grid1" onclick="jogadaFeita(1);"></div>
-            <div class="grid" id="grid2" onclick="jogadaFeita(2);"></div>
-            <div class="grid" id="grid3" onclick="jogadaFeita(3);"></div>
-            <div class="grid" id="grid4" onclick="jogadaFeita(4);"></div>
-            <div class="grid" id="grid5" onclick="jogadaFeita(5);"></div>
-            <div class="grid" id="grid6" onclick="jogadaFeita(6);"></div>
-            <div class="grid" id="grid7" onclick="jogadaFeita(7);"></div>
-            <div class="grid" id="grid8" onclick="jogadaFeita(8);"></div>
-            <div class="grid" id="grid9" onclick="jogadaFeita(9);"></div>
+<body id="main">
+
+
+    <div class="configuracao" id="configuracao">
+        <div class="close_configuracao2" id="close_configuracao2" onclick="closeOpenConfiguration();">↑</div>
+        <h3>Configurations.</h3>
+        <div class="input-group">
+            <label for="input1">↔ X:</label>
+            <input type="number" id="input1" min="0" step="1" value="3">
         </div>
-        <div class="balanco" id="balanco"></div>
-        <div class="restart" id="restart" onclick="startNewJogoDaVeia();">
-            Reiniciar
+        <div class="input-group">
+            <label for="input2">↕ Y:</label>
+            <input type="number" id="input2" min="0" step="1" value="3">
         </div>
-    </main>
+        <div class="input-group">
+            <label for="input3">Amount to win:</label>
+            <input type="number" id="input3" min="0" step="1" value="3">
+        </div>
+        <div class="input-group">
+            <label for="dropdown">Game mode:</label>
+            <select id="dropdown">
+                <option value="TicTacToe">TicTacToe</option>
+                <option value="Lig4">Lig4</option>
+                <!-- <option value="opcao3"></option> -->
+            </select>
+        </div>
+        <div class="decoration_line"></div>
+        
+        <div class="close_configuracao3" id="close_configuracao3" onclick="closeOpenConfiguration2();">↓</div>
+        <div class="configuracao2" id="configuracao2">
+            <h3>Extras.</h3>
+
+            <button onclick="reset();">
+                RESET EXTRAS
+            </button>
+            <!-- <div class="input-group" id="input-group">
+                <label for="checkbox0">Nothing:</label>
+                <input type="checkbox" id="checkbox0" name="options" value="0" onclick="changeExtras(0);" checked>
+            </div> -->
+            <div class="input-group" id="input-group">
+                <label for="checkbox1">Blocking wall:</label>
+                <input type="checkbox" id="checkbox1" name="options" value="1" onclick="changeExtras(1);" >
+                <svg width="800px" height="800px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path class="Wall"  d="M494 18.02l-101 .103V119h101zm-119 .12l-238 .247V119h238zm-256 .266L18 18.51V119h101zM18 137v110h229V137zm247 0v110h229V137zM18 265v110h101V265zm119 0v110h238V265zm256 0v110h101V265zM18 393v100.98l229-.236V393zm247 0v100.727l229-.237V393z"/></svg>
+            </div>
+            <div class="input-group" id="input-group">
+                <label for="checkbox2">+1 to win:</label>
+                <input type="checkbox" id="checkbox2" name="options" value="2" onclick="changeExtras(2);" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="plusonetowin" d="M278.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l9.4-9.4L224 224l-114.7 0 9.4-9.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-64 64c-12.5 12.5-12.5 32.8 0 45.3l64 64c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-9.4-9.4L224 288l0 114.7-9.4-9.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l64 64c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-9.4 9.4L288 288l114.7 0-9.4 9.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-64-64c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l9.4 9.4L288 224l0-114.7 9.4 9.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-64-64z"/></svg>
+            </div>
+            <div class="input-group" id="input-group">
+                <label for="checkbox3">Detonator:</label>
+                <input type="checkbox" id="checkbox3" name="options" value="3" onclick="changeExtras(3);" >
+                <img src="./IMGs/DetonatorBox.png"></img>
+            </div>
+            <!-- <div class="input-group" id="input-group">
+                <label for="checkbox4">Detonator:</label>
+                <input type="checkbox" id="checkbox4" name="options" value="4" onclick="changeExtras(4);" >
+            </div> -->
+        </div>
+
+    </div>
+    <div class="close_configuracao" id="close_configuracao" onclick="closeOpenConfiguration();">↓</div>
+
+    <div class="principal">
+        <div class="grid-container" id="grid-container">
+
+        </div>
+        <div class="reiniciar" onclick='reset("softReset");'>
+            RESTART
+        </div>
+    </div>
+   
+    <div class="displayMesenge" id="displayMesenge">
+        
+    </div>
+
+    <script src="scripcheckEventsInSequence.js"></script>
+    <script src="script.js"></script>
+    <script src="scriptReset.js" defer></script>
+    <script src="scriptStyleHtml.js"></script>
+
 </body>
-<script src="script.js"> </script>
 </html>
