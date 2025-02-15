@@ -1,0 +1,216 @@
+*{
+    padding: 0px; margin: 0px; box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+:root {
+    --X: 0;
+    --Y: 0;
+    --grid-item-color: rgba(0, 0, 0, 0);
+
+}
+h3{
+    margin:0 0 10px 0;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(var(--X), 100px);
+    grid-template-rows: repeat(var(--Y), 100px);
+    gap: 5px;
+    /* position: fixed; */
+}
+
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid #333;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0px 0px 5px var(--grid-item-color);
+}
+.grid-item svg {
+    height: 80%;
+    width: 80%;
+}
+.grid-item img{
+    height: 100%;
+    width: 100%;
+}
+.X{
+    fill: rgb(0, 149, 255);
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+}
+.O{
+    fill: rgb(233, 25, 25);
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+}
+.Wall{
+    fill: rgba(105, 105, 105, 0.297);
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+}
+.plusonetowin{
+    fill: rgb(162, 0, 255);
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+.grid-item:hover {
+    background-color: #e0e0e0;
+}
+.no{
+    max-width: 50vw;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+
+.configuracao, .close_configuracao{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    flex-direction: column;
+}
+.configuracao, .configuracao2{
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    width: 250px;
+}
+.configuracao2{
+    align-self: center;
+    padding: 0 10px 10px 10px;
+    flex-direction: inherit;
+}
+.close_configuracao, .close_configuracao2, .close_configuracao3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    cursor: pointer;
+    user-select: none;
+}
+.close_configuracao2, .close_configuracao3{
+    align-self: center;
+}
+
+.input-group {
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+.input-group svg, .input-group img{
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    /* filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5)); */
+    /* background-color: #5a5a5a65; */
+}
+
+input[type="number"] {
+    width: 40px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+input[type="number"], input[type="checkbox"], input[type="radio"], select{
+    margin-left: 5px;
+    padding: 5px;
+    min-height: 18px;
+    min-width: 18px;
+}
+button{
+    padding: 5px;
+    min-height: 18px;
+    min-width: 18px;
+    margin-bottom: 10px;
+    background-color: white;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+select {
+    width: 50%;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+
+}
+.reiniciar{
+    width: 160px;
+    height: 60px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    font-size: 25PX;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.reiniciar:active {
+    background-color: rgb(188, 188, 188);
+}
+.displayMesenge{
+    height: 100vh;
+    width: 12vw;
+    background-color: #33333392;
+    border: 1px solid black;
+    font-size: 20vh;
+
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+    top: 0;
+    position: fixed;
+    text-wrap:wrap;
+    text-align: center;
+
+    padding-top: 5vh;
+}
+.displayMesenge_content{
+    height: auto;
+    width: 100%;
+}
+.displayMesenge_content svg{
+    height: 20vh;
+    width: 20vh; 
+}
+.decoration_line{
+    height: 1px;
+    width: calc(100% - 10px);
+    background-color: black;
+    margin-bottom: 5px;
+}
